@@ -961,6 +961,7 @@ def create_merge(state, repo_cfg, branch, logger, git_cfg,
                                   'pull/{}/head'.format(state.num)))
         utils.silent_call(git_cmd('rebase', '--abort'))
         utils.silent_call(git_cmd('merge', '--abort'))
+        utils.silent_call(git_cmd('reset', '--hard'))
 
         if repo_cfg.get('linear', False):
             utils.logged_call(
